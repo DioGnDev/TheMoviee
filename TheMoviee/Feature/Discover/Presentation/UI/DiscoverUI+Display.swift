@@ -11,7 +11,7 @@ extension DiscoverUI: DiscoverDisplayLogic {
     
     func displayDiscover(viewModel: [DiscoverViewModel]){
         state.update(discover: viewModel)
-        discoverTableView.reloadData()
+        self.discoverTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
     }
     
     func displayAlert(with message: String) {

@@ -49,10 +49,10 @@ class DiscoverUI: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         controllerName = "\(DiscoverUI.self)"
-        
         title = state.titleName
+    
+        self.view.showAnimatedSkeleton()
         
         let param = DiscoverRequest(genreId: state.genreId, page: 1)
         interactor?.getDiscover(param: param)
@@ -61,8 +61,9 @@ class DiscoverUI: BaseViewController{
     override func setupView() {
         super.setupView()
         
+        discoverTableView.isSkeletonable = true
         discoverTableView.rowHeight = UITableView.automaticDimension
-        discoverTableView.estimatedRowHeight = 180
+        discoverTableView.estimatedRowHeight = 300
         discoverTableView.register(DiscoverCell.nib, forCellReuseIdentifier: DiscoverCell.identifier)
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class BaseViewController: UIViewController {
     
@@ -17,12 +18,14 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.isSkeletonable = true
+        self.view.backgroundColor = .white
+        
         setupView()
     }
     
-    func setupView(){
-        self.view.backgroundColor = .white
-    }
+    func setupView(){ }
     
     deinit {
         debug(with: "deinit", message: controllerName)

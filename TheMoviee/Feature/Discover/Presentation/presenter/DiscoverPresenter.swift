@@ -55,7 +55,7 @@ class DiscoverViewModel{
     }
     
     var status: String {
-        return entity.adult == true ? "For Adults" : "All Ages"
+        return entity.adult == true ? "Adult only" : "All age"
     }
     
     var year: String {
@@ -63,7 +63,7 @@ class DiscoverViewModel{
     }
     
     var popularity: String {
-        return String(describing: entity.popularity)
+        return "★ \(entity.popularity)"
     }
     
     var imageURL: URL? {

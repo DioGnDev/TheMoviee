@@ -10,6 +10,7 @@ import Foundation
 extension GenreUI: GenreDisplayLogic {
     
     func displayGenre(viewModel: [GenreViewModel]){
+        self.view.hideSkeleton()
         state.update(genres: viewModel)
         genreTableView.reloadData()
     }

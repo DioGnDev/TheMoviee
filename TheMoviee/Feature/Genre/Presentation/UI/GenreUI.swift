@@ -52,6 +52,8 @@ class GenreUI: BaseViewController{
     
         controllerName = "\(GenreUI.self)"
         
+//        self.view.showAnimatedGradientSkeleton()
+        
         let param = GenreRequest()
         interactor?.getGenre(param: param)
     }

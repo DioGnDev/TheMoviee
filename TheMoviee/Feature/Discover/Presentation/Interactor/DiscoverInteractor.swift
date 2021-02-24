@@ -27,8 +27,7 @@ class DiscoverInteractor: DiscoverInteractorLogic {
     init(getDiscoverUsecase: GetDiscoverUsecase) {
         self.getDiscoverUsecase = getDiscoverUsecase
     }
-    
-    //example method 
+
     func getDiscover(param: DiscoverRequest) {
         
         getDiscoverUsecase.execute(param: param) { (result) in
@@ -40,6 +39,9 @@ class DiscoverInteractor: DiscoverInteractorLogic {
             case .success(let items):
                 if items.count == 0 || items.isEmpty {
                     //present empty view
+                    self.presenter?.presentEmpty(with: "",
+                                                 message: "Sorry",
+                                                 detail: "No list of movie for this genre")
                 }else {
                     self.presenter?.presentDiscover(entities: items)
                 }

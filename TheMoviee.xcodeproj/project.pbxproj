@@ -80,6 +80,10 @@
 		E0A4CB1125E593AC0070D317 /* GetTrailerUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4CB1025E593AC0070D317 /* GetTrailerUsecase.swift */; };
 		E0A4CB1425E594140070D317 /* TrailerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4CB1325E594140070D317 /* TrailerEntity.swift */; };
 		E0A4CB1725E595B00070D317 /* TrailerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4CB1625E595B00070D317 /* TrailerModel.swift */; };
+		E0B8D37625E602AF00A6BF85 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = E0B8D37525E602AF00A6BF85 /* SkeletonView */; };
+		E0B8D37925E603EE00A6BF85 /* GenreUI+Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8D37825E603EE00A6BF85 /* GenreUI+Skeleton.swift */; };
+		E0B8D37C25E604C300A6BF85 /* DiscoverUI+Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8D37B25E604C300A6BF85 /* DiscoverUI+Skeleton.swift */; };
+		E0B8D37F25E61E1B00A6BF85 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8D37E25E61E1B00A6BF85 /* AppColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +160,9 @@
 		E0A4CB1025E593AC0070D317 /* GetTrailerUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTrailerUsecase.swift; sourceTree = "<group>"; };
 		E0A4CB1325E594140070D317 /* TrailerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerEntity.swift; sourceTree = "<group>"; };
 		E0A4CB1625E595B00070D317 /* TrailerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerModel.swift; sourceTree = "<group>"; };
+		E0B8D37825E603EE00A6BF85 /* GenreUI+Skeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenreUI+Skeleton.swift"; sourceTree = "<group>"; };
+		E0B8D37B25E604C300A6BF85 /* DiscoverUI+Skeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverUI+Skeleton.swift"; sourceTree = "<group>"; };
+		E0B8D37E25E61E1B00A6BF85 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E070933725E536AB00D2A3BA /* Alamofire in Frameworks */,
+				E0B8D37625E602AF00A6BF85 /* SkeletonView in Frameworks */,
 				E07093F525E5708B00D2A3BA /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +242,7 @@
 				E070936225E542D500D2A3BA /* BaseViewController.swift */,
 				E07093A625E5494A00D2A3BA /* BaseRequest.swift */,
 				E070942825E57D4200D2A3BA /* BaseMovieEntity.swift */,
+				E0B8D37E25E61E1B00A6BF85 /* AppColor.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -421,6 +430,7 @@
 			children = (
 				E07093A325E5461200D2A3BA /* GenreUI+TableView.swift */,
 				E07093A925E5501600D2A3BA /* GenreUI+Display.swift */,
+				E0B8D37825E603EE00A6BF85 /* GenreUI+Skeleton.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -572,6 +582,7 @@
 			children = (
 				E07093ED25E5607300D2A3BA /* DiscoverUI+TableView.swift */,
 				E07093F025E560D500D2A3BA /* DiscoverUI+Display.swift */,
+				E0B8D37B25E604C300A6BF85 /* DiscoverUI+Skeleton.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -757,6 +768,7 @@
 			packageProductDependencies = (
 				E070933625E536AB00D2A3BA /* Alamofire */,
 				E07093F425E5708B00D2A3BA /* Nuke */,
+				E0B8D37525E602AF00A6BF85 /* SkeletonView */,
 			);
 			productName = TheMoviee;
 			productReference = E070930825E5285F00D2A3BA /* TheMoviee.app */;
@@ -788,6 +800,7 @@
 			packageReferences = (
 				E070933525E536AA00D2A3BA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E07093F325E5708B00D2A3BA /* XCRemoteSwiftPackageReference "Nuke" */,
+				E0B8D37425E602AF00A6BF85 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = E070930925E5285F00D2A3BA /* Products */;
 			projectDirPath = "";
@@ -845,8 +858,10 @@
 				E070939A25E5452800D2A3BA /* GenreInteractor.swift in Sources */,
 				E070936325E542D500D2A3BA /* BaseViewController.swift in Sources */,
 				E070936025E53CC200D2A3BA /* Extension.swift in Sources */,
+				E0B8D37925E603EE00A6BF85 /* GenreUI+Skeleton.swift in Sources */,
 				E07093D325E5554C00D2A3BA /* DiscoverEntity.swift in Sources */,
 				E0A4CB1425E594140070D317 /* TrailerEntity.swift in Sources */,
+				E0B8D37F25E61E1B00A6BF85 /* AppColor.swift in Sources */,
 				E0A4CB0E25E589A60070D317 /* ReviewEntity.swift in Sources */,
 				E070935225E5379000D2A3BA /* DataError.swift in Sources */,
 				E070939025E5452800D2A3BA /* GenreRepositoryLogic.swift in Sources */,
@@ -878,6 +893,7 @@
 				E07093EE25E5607300D2A3BA /* DiscoverUI+TableView.swift in Sources */,
 				E070939625E5452800D2A3BA /* GenreModel.swift in Sources */,
 				E07093E625E55A4800D2A3BA /* DiscoverResponse.swift in Sources */,
+				E0B8D37C25E604C300A6BF85 /* DiscoverUI+Skeleton.swift in Sources */,
 				E07093D825E5554C00D2A3BA /* DiscoverConfigurator.swift in Sources */,
 				E070930E25E5285F00D2A3BA /* SceneDelegate.swift in Sources */,
 				E070942E25E5825300D2A3BA /* DetailMovieUIState.swift in Sources */,
@@ -1103,6 +1119,14 @@
 				minimumVersion = 9.3.0;
 			};
 		};
+		E0B8D37425E602AF00A6BF85 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.13.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1115,6 +1139,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E07093F325E5708B00D2A3BA /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
+		};
+		E0B8D37525E602AF00A6BF85 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0B8D37425E602AF00A6BF85 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 
