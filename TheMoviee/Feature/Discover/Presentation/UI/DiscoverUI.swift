@@ -13,7 +13,8 @@ import Foundation
 import UIKit
 
 protocol DiscoverDisplayLogic: BaseDisplayLogic{
-    func displayDiscover(viewModel: [DiscoverViewModel])
+    func displayDiscover(viewModels: [DiscoverViewModel])
+    func displayDiscoverMore(viewModels: [DiscoverViewModel])
 }
 
 class DiscoverUI: BaseViewController{
@@ -54,7 +55,9 @@ class DiscoverUI: BaseViewController{
     
         self.view.showAnimatedSkeleton()
         
-        let param = DiscoverRequest(genreId: state.genreId, page: 1)
+        //initial request page
+        state.update(page: 1)
+        let param = DiscoverRequest(genreId: state.genreId, page: state.page)
         interactor?.getDiscover(param: param)
     }
     
@@ -63,8 +66,23 @@ class DiscoverUI: BaseViewController{
         
         discoverTableView.isSkeletonable = true
         discoverTableView.rowHeight = UITableView.automaticDimension
-//        discoverTableView.estimatedRowHeight = 250
         discoverTableView.register(DiscoverCell.nib, forCellReuseIdentifier: DiscoverCell.identifier)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if !state.isLoadingMore {
+            let scrollViewContentHeight = discoverTableView.contentSize.height
+            let scrollViewOffsetTreshold = scrollViewContentHeight - discoverTableView.bounds.size.height
+            
+            if scrollView.contentOffset.y > scrollViewOffsetTreshold && discoverTableView.isDragging {
+                state.shouldLoading(true)
+                state.update(page: state.page + 1)
+                let request = DiscoverRequest(genreId: state.genreId, page: state.page)
+                interactor?.getDiscoverMore(param: request)
+            }
+        }
+    
     }
     
 }

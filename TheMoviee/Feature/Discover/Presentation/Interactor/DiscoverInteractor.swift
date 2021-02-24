@@ -13,6 +13,7 @@ import Foundation
 
 protocol DiscoverInteractorLogic {
     func getDiscover(param: DiscoverRequest)
+    func getDiscoverMore(param: DiscoverRequest)
 }
 
 class DiscoverInteractor: DiscoverInteractorLogic {
@@ -50,4 +51,25 @@ class DiscoverInteractor: DiscoverInteractorLogic {
         }
     }
     
+    func getDiscoverMore(param: DiscoverRequest) {
+        
+        getDiscoverUsecase.execute(param: param) { (result) in
+            switch result {
+            case .failure(let error):
+                //present error to view
+                self.presenter?.presentAlert(with: error.errorType.description)
+                break
+            case .success(let items):
+                if items.count == 0 || items.isEmpty {
+                    //present empty view
+                    self.presenter?.presentEmpty(with: "",
+                                                 message: "Sorry",
+                                                 detail: "No list of movie for this genre")
+                }else {
+                    self.presenter?.presentDiscoverMore(entities: items)
+                }
+                break
+            }
+        }
+    }
 }

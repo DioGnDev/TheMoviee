@@ -29,7 +29,6 @@ class BasicHeader: UICollectionReusableView {
     }
     
     @IBAction func didShowAll(_ sender: UIButton) {
-        debug(with: "didtap", message: "show all review")
         delegate?.didTapShowAll()
     }
     

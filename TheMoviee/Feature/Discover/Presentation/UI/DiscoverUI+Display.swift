@@ -9,9 +9,15 @@ import Foundation
 
 extension DiscoverUI: DiscoverDisplayLogic {
     
-    func displayDiscover(viewModel: [DiscoverViewModel]){
-        state.update(discover: viewModel)
+    func displayDiscover(viewModels: [DiscoverViewModel]){
+        state.update(discover: viewModels)
         self.discoverTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+    }
+    
+    func displayDiscoverMore(viewModels: [DiscoverViewModel]) {
+        state.shouldLoading(false)
+        state.insert(discover: viewModels)
+        self.discoverTableView.reloadData()
     }
     
     func displayAlert(with message: String) {
