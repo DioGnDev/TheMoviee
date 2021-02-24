@@ -33,6 +33,7 @@ extension DiscoverUI: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DiscoverUI {
+    
     func setupData(for cell: DiscoverCell, indexPath: IndexPath) {
         let item = state.viewModels[indexPath.row]
         cell.titleLabel.text = item.getName
@@ -43,4 +44,5 @@ extension DiscoverUI {
         let options = ImageLoadingOptions(transition: .fadeIn(duration: 0.2))
         Nuke.loadImage(with: item.imageURL!, options: options, into: cell.thumbnailImageView)
     }
+    
 }
