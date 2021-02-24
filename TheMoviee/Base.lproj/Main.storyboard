@@ -81,6 +81,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="0pO-ZP-eVI" id="YpB-QJ-xli"/>
                                     <outlet property="delegate" destination="0pO-ZP-eVI" id="yn2-P5-MXU"/>
@@ -99,11 +102,66 @@
                     <navigationItem key="navigationItem" title="Discover" id="03t-Ar-ihw"/>
                     <connections>
                         <outlet property="discoverTableView" destination="Fj3-bi-aiO" id="fxR-kQ-A16"/>
+                        <segue destination="GqO-C8-FnP" kind="show" id="Zx8-eh-2PE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvr-2M-LbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1643" y="62"/>
+            <point key="canvasLocation" x="1668" y="62"/>
+        </scene>
+        <!--Detail Information-->
+        <scene sceneID="5sb-MD-zq4">
+            <objects>
+                <viewController storyboardIdentifier="detail_movie_ui" id="GqO-C8-FnP" customClass="DetailMovieUI" customModule="TheMoviee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IdR-mE-KtA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mJm-C7-UPq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail Information" largeTitleDisplayMode="never" id="d2Q-y0-aD8"/>
+                    <connections>
+                        <segue destination="kfG-eR-LVY" kind="show" id="jUk-xo-3yt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e7c-tF-OBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2561" y="62"/>
+        </scene>
+        <!--Reviews-->
+        <scene sceneID="7fz-1Q-QtI">
+            <objects>
+                <viewController storyboardIdentifier="review_vc" id="kfG-eR-LVY" customClass="ReviewUI" customModule="TheMoviee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RTs-Ac-3X9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yUm-Es-4Oc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kfG-eR-LVY" id="89U-IM-21F"/>
+                                    <outlet property="delegate" destination="kfG-eR-LVY" id="TAC-zW-PTe"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Lx-3S-KMV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Lx-3S-KMV" firstAttribute="trailing" secondItem="yUm-Es-4Oc" secondAttribute="trailing" id="FaE-za-bPe"/>
+                            <constraint firstItem="yUm-Es-4Oc" firstAttribute="top" secondItem="0Lx-3S-KMV" secondAttribute="top" id="TmE-Yp-QhR"/>
+                            <constraint firstItem="yUm-Es-4Oc" firstAttribute="leading" secondItem="0Lx-3S-KMV" secondAttribute="leading" id="edQ-s7-kfL"/>
+                            <constraint firstItem="0Lx-3S-KMV" firstAttribute="bottom" secondItem="yUm-Es-4Oc" secondAttribute="bottom" id="qu7-Xg-xcb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reviews" id="Fp3-kN-2aj"/>
+                    <connections>
+                        <outlet property="reviewTableView" destination="yUm-Es-4Oc" id="reO-8z-4Gv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pMR-0f-dkD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3449" y="62"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f2u-o8-oD6">
@@ -113,7 +171,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hct-TZ-gMF">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="Secondary"/>
+                        <color key="tintColor" name="Primary"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -126,8 +184,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Secondary">
-            <color red="0.0039215686274509803" green="0.70588235294117641" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Primary">
+            <color red="0.050999999046325684" green="0.14499999582767487" blue="0.24699999392032623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

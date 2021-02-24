@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-public class AppColor {
-    public static let primaryColor = UIColor(named: "Primary")!
-    public static let secondaryColor = UIColor(named: "Secondary")!
-    public static let tertiaryColor = UIColor(named: "Tertiary")
-}
+//public class AppColor {
+//    public static let primaryColor = UIColor(named: "Primary")!
+//    public static let secondaryColor = UIColor(named: "Secondary")!
+//    public static let tertiaryColor = UIColor(named: "Tertiary")
+//}

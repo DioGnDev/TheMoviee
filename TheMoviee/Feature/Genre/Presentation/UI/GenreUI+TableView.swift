@@ -19,9 +19,9 @@ extension GenreUI: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewmodel = state.viewModels[indexPath.item]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "basic_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: GenreTableViewCell.identifier, for: indexPath) as! GenreTableViewCell
         cell.backgroundColor = indexPath.row % 2 == 0 ? .systemGray6 : .white
-        cell.textLabel?.text = viewmodel.getName
+        cell.nameLabel.text = viewmodel.getName
         cell.accessoryType = .disclosureIndicator
         return cell
     }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Nuke
 
 //MARK: viewcontroler extension
 extension UIViewController {
@@ -50,6 +51,11 @@ extension UIViewController {
         content.removeFromParent()
     }
     
+    func loadImage(from url: ImageRequestConvertible, into view: ImageDisplayingView) {
+        let options = ImageLoadingOptions(transition: .fadeIn(duration: 0.25))
+        Nuke.loadImage(with: url, options: options, into: view)
+    }
+    
 }
 
 extension Date {
@@ -67,4 +73,24 @@ extension Date {
         return calendar.component(component, from: self)
     }
     
+}
+
+extension UIColor {
+    open class var primary: UIColor{
+        get {
+            return UIColor(named: "Primary") ?? .clear
+        }
+    }
+    
+    open class var secondary: UIColor{
+        get {
+            return UIColor(named: "Secondary") ?? .clear
+        }
+    }
+    
+    open class var terniary: UIColor {
+        get {
+            return UIColor(named: "Terniary") ?? .clear
+        }
+    }
 }

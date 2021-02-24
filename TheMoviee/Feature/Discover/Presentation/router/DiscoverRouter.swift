@@ -21,7 +21,9 @@ class DiscoverRouter: DiscoverRouterLogic {
     weak var viewController: DiscoverUI?
     
     func navigateToDetailMovie(with item: DiscoverEntity) {
-        let destination = DetailMovieUI()
+        let destination = viewController?
+            .storyboardInstanceWithID(name: "Main",
+                                      identifier: "detail_movie_ui") as! DetailMovieUI
         destination.state.id = item.id
         viewController?.navigationController?.pushViewController(destination, animated: true)
     }

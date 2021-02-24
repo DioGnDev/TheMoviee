@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ReviewUsecase: BaseUsecase {
+class GetSampleReviewUsecase: BaseUsecase {
     typealias T = [ReviewEntity]
     typealias P = ReviewRequest
     typealias E = DataError

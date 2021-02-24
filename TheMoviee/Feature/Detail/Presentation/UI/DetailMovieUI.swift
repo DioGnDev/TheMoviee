@@ -27,6 +27,9 @@ class DetailMovieUI: BaseViewController{
     //state
     let state = DetailMovieUIState()
     
+    //view
+    var detailCollectionView: UICollectionView!
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         DetailMovieConfigurator.inject(dependencyFor: self)
@@ -39,6 +42,8 @@ class DetailMovieUI: BaseViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,5 +66,29 @@ class DetailMovieUI: BaseViewController{
         let trailerParam = TrailerRequest(id: state.id)
         interactor?.getTrialer(param: trailerParam)
     }
+ 
+    override func setupView() {
+        super.setupView()
+        
+        detailCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: compositionalLayout())
+        detailCollectionView.backgroundColor = .white
+        detailCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        detailCollectionView.showsVerticalScrollIndicator = false
+        detailCollectionView.showsHorizontalScrollIndicator = false
+        detailCollectionView.dataSource = self
+        detailCollectionView.delegate = self
+        detailCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "default_cell")
+        detailCollectionView.register(DetailMovieCell.nib, forCellWithReuseIdentifier: DetailMovieCell.identifier)
+        detailCollectionView.register(TrailerCell.nib, forCellWithReuseIdentifier: TrailerCell.identifier)
+        detailCollectionView.register(ReviewCell.nib, forCellWithReuseIdentifier: ReviewCell.identifier)
+        detailCollectionView.register(BasicHeader.nib, forSupplementaryViewOfKind: BasicHeader.kind, withReuseIdentifier: BasicHeader.identifier)
+        
+        self.view.addSubview(detailCollectionView)
+    }
+}
+extension DetailMovieUI: BasicHeaderDelegate {
     
+    func didTapShowAll() {
+        router?.navigateToReview(id: state.id)
+    }
 }

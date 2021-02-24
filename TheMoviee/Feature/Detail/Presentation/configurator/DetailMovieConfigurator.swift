@@ -21,7 +21,7 @@ class DetailMovieConfigurator {
         let dataSource = DetailMovieRemoteDataSourceImpl()
         let repository = DetailMovieRepositoryImpl(datasource: dataSource)
         let usecase = GetDetailMovieUsecase(repository: repository)
-        let reviewUsecase = ReviewUsecase(repository: repository)
+        let reviewUsecase = GetSampleReviewUsecase(repository: repository)
         let trailerUsecase = GetTrailerUsecase(repository: repository)
         
         let interactor = DetailMovieInteractor(getDetailMovieUsecase: usecase,

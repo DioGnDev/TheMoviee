@@ -32,7 +32,8 @@ class DetailMovieRepositoryImpl: DetailMovieRepositoryLogic {
                                                description: model.overview ?? "",
                                                poster: model.posterPath ?? "",
                                                popularity: model.popularity ?? 0.0,
-                                               status: model.status ?? "")
+                                               status: model.status ?? "",
+                                               releaseDate: model.releaseDate ?? "1826")
                 completion(.success(entity))
             }
         }
@@ -49,9 +50,22 @@ class DetailMovieRepositoryImpl: DetailMovieRepositoryLogic {
                     ReviewEntity(author: $0.author ?? "",
                                  username: $0.authorDetails?.username ?? "",
                                  avatar: $0.authorDetails?.avatarPath ?? "",
-                                 content: $0.content ?? "")
+                                 content: $0.content ?? "",
+                                 rating: $0.authorDetails?.rating ?? 0)
                 }
-                completion(.success(entities))
+                
+                let limit = 4
+                var reviews: [ReviewEntity] = []
+                if entities.count > 4 {
+                    let difference = entities.count - limit
+                    for i in 0..<(entities.count - difference) {
+                        reviews.append(entities[i])
+                    }
+                }else {
+                    reviews = entities
+                }
+                
+                completion(.success(reviews))
             }
         }
     }

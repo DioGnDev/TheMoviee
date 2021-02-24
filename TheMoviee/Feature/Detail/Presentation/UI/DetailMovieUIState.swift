@@ -10,17 +10,34 @@ import Foundation
 class DetailMovieUIState {
     
     var id: Int
-    var viewModel: DetailMovieViewModel
+    private(set) var detailViewModel: DetailMovieViewModel
+    private(set) var reviewViewModels: [ReviewViewModel]
+    private(set) var trailerViewModels: [TrailerViewModel]
     
     init() {
         self.id = -1
-        self.viewModel = .init(
+        trailerViewModels = []
+        reviewViewModels = []
+        self.detailViewModel = .init(
             entity: .init(id: 1,
                           title: "Test",
                           description: "Test",
                           poster: "Test",
                           popularity: 1,
-                          status: "Test"))
+                          status: "Test",
+                          releaseDate: "1733"))
         
+    }
+    
+    func update(detail: DetailMovieViewModel) {
+        self.detailViewModel = detail
+    }
+    
+    func update(reviews: [ReviewViewModel]) {
+        self.reviewViewModels = reviews
+    }
+    
+    func update(trailers: [TrailerViewModel]) {
+        self.trailerViewModels = trailers
     }
 }

@@ -6,13 +6,13 @@
 //
 
 import Foundation
+import SkeletonView
 
 extension GenreUI: GenreDisplayLogic {
     
     func displayGenre(viewModel: [GenreViewModel]){
-        self.view.hideSkeleton()
         state.update(genres: viewModel)
-        genreTableView.reloadData()
+        genreTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
     }
     
     func displayAlert(with message: String) {

@@ -13,4 +13,5 @@ struct ReviewEntity {
     let username: String
     let avatar: String
     let content: String
+    let rating: Int
 }

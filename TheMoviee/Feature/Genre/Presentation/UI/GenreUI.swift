@@ -52,7 +52,7 @@ class GenreUI: BaseViewController{
     
         controllerName = "\(GenreUI.self)"
         
-//        self.view.showAnimatedGradientSkeleton()
+        genreTableView.showAnimatedGradientSkeleton()
         
         let param = GenreRequest()
         interactor?.getGenre(param: param)
@@ -61,9 +61,11 @@ class GenreUI: BaseViewController{
     override func setupView() {
         super.setupView()
         
+        genreTableView.rowHeight = UITableView.automaticDimension
         genreTableView.dataSource = self
         genreTableView.delegate = self
         genreTableView.separatorStyle = .none
+        genreTableView.register(GenreTableViewCell.nib, forCellReuseIdentifier: GenreTableViewCell.identifier)
     }
     
 }

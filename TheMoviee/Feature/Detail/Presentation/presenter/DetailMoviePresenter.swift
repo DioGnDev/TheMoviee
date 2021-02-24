@@ -64,18 +64,23 @@ class DetailMovieViewModel{
     var description: String {
         return entity.description
     }
-}
-
-class ReviewViewModel {
     
-    private let entity: ReviewEntity
+    lazy var poster: URL = {
+        return URL(string: "https://image.tmdb.org/t/p/w200\(entity.poster)") ?? URL(fileURLWithPath: "")
+    }()
     
-    init(entity: ReviewEntity) {
-        self.entity = entity
+    var popularity: String {
+        return "\(entity.popularity)"
     }
     
+    var status: String {
+        return entity.status
+    }
+    
+    var releaseDate: String {
+        return entity.releaseDate
+    }
 }
-
 
 class TrailerViewModel {
     
@@ -84,4 +89,5 @@ class TrailerViewModel {
     init(entity: TrailerEntity) {
         self.entity = entity
     }
+    
 }

@@ -65,11 +65,11 @@ extension NetworkManager {
             .responseString(queue: DispatchQueue.main, encoding: String.Encoding.utf8, completionHandler: { (response) in
                 
                 //Log
-                debug(with: "url", message: String(describing: response.request))
+                /*debug(with: "url", message: String(describing: response.request))
                 debug(with: "header", message: String(describing: headers))
                 debug(with: "params", message: String(describing: parameters))
                 debug(with: "statuscode", message: String(describing: response.response?.statusCode))
-                debug(with: "response", message: response.result)
+                debug(with: "response", message: response.result)*/
                 
                 guard let statusCode = response.response?.statusCode else {
                     completion(.failure(DataError.unknownError))

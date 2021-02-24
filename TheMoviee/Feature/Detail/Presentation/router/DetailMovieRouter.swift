@@ -13,15 +13,19 @@ import Foundation
 import UIKit
 
 protocol DetailMovieRouterLogic {
-    func gotoDetail(with item: DetailMovieEntity)
+    func navigateToReview(id: Int)
 }
 
 class DetailMovieRouter: DetailMovieRouterLogic {
     
     weak var viewController: DetailMovieUI?
     
-    func gotoDetail(with item: DetailMovieEntity) {
-        let destination = UIViewController()
+    func navigateToReview(id: Int) {
+        let destination = viewController?
+            .storyboardInstanceWithID(name: "Main",
+                                      identifier: "review_vc") as! ReviewUI
+        destination.state.id = id
         viewController?.navigationController?.pushViewController(destination, animated: true)
     }
+    
 }

@@ -10,6 +10,7 @@ import UIKit
 import SkeletonView
 
 extension DiscoverUI: SkeletonTableViewDataSource {
+    
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }

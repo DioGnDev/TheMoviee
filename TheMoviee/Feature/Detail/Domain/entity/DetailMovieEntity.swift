@@ -19,4 +19,5 @@ struct DetailMovieEntity: BaseMovieEntity {
     var poster: String
     var popularity: Double
     var status: String
+    var releaseDate: String
 }

@@ -16,6 +16,6 @@ extension GenreUI: SkeletonTableViewDataSource {
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return "basic_cell"
+        return GenreTableViewCell.identifier
     }
 }

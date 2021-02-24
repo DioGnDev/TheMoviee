@@ -63,7 +63,7 @@ class DiscoverUI: BaseViewController{
         
         discoverTableView.isSkeletonable = true
         discoverTableView.rowHeight = UITableView.automaticDimension
-        discoverTableView.estimatedRowHeight = 300
+//        discoverTableView.estimatedRowHeight = 250
         discoverTableView.register(DiscoverCell.nib, forCellReuseIdentifier: DiscoverCell.identifier)
     }
     

@@ -24,12 +24,12 @@ class DetailMovieInteractor: DetailMovieInteractorLogic {
     
     //usecase
     var getDetailMovieUsecase: GetDetailMovieUsecase
-    var reviewUsecase: ReviewUsecase
+    var reviewUsecase: GetSampleReviewUsecase
     var getTrailerUsecase: GetTrailerUsecase
     
     //initial
     init(getDetailMovieUsecase: GetDetailMovieUsecase,
-         reviewUsecase: ReviewUsecase,
+         reviewUsecase: GetSampleReviewUsecase,
          getTrailerUsecase: GetTrailerUsecase) {
         
         self.getDetailMovieUsecase = getDetailMovieUsecase
@@ -61,7 +61,6 @@ class DetailMovieInteractor: DetailMovieInteractorLogic {
             }
         }
     }
-    
     
     func getTrialer(param: TrailerRequest) {
         getTrailerUsecase.execute(param: param) { (result) in
