@@ -69,8 +69,8 @@ extension NetworkManager {
                 debug(with: "header", message: String(describing: headers))
                 debug(with: "params", message: String(describing: parameters))
                 debug(with: "statuscode", message: String(describing: response.response?.statusCode))
-                debug(with: "response", message: response.result)*/
-                debug(with: "body", message: response.request)
+                debug(with: "response", message: response.result)
+                debug(with: "body", message: response.request)*/
                 
                 guard let statusCode = response.response?.statusCode else {
                     completion(.failure(DataError.unknownError))
