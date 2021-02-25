@@ -28,6 +28,7 @@ class DiscoverUI: BaseViewController{
     
     //view
     @IBOutlet weak var discoverTableView: UITableView!
+    let refreshControl = UIRefreshControl()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -64,25 +65,22 @@ class DiscoverUI: BaseViewController{
     override func setupView() {
         super.setupView()
         
+        refreshControl.addTarget(self, action: #selector(didRefresh), for: .valueChanged)
+        
         discoverTableView.isSkeletonable = true
         discoverTableView.rowHeight = UITableView.automaticDimension
+        discoverTableView.estimatedRowHeight = 250
         discoverTableView.register(DiscoverCell.nib, forCellReuseIdentifier: DiscoverCell.identifier)
+        discoverTableView.refreshControl = refreshControl
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-       
-        if !state.isLoadingMore && !state.isLastPage{
-            let scrollViewContentHeight = discoverTableView.contentSize.height
-            let scrollViewOffsetTreshold = scrollViewContentHeight - discoverTableView.bounds.size.height
-            
-            if scrollView.contentOffset.y > scrollViewOffsetTreshold && discoverTableView.isDragging {
-                state.shouldLoading(true)
-                state.update(page: state.page + 1)
-                let request = DiscoverRequest(genreId: state.genreId, page: state.page)
-                interactor?.getMoreDiscover(param: request)
-            }
-        }
-    
+    @objc func didRefresh(){
+        
+        discoverTableView.showAnimatedSkeleton()
+        
+        state.update(page: 1)
+        let param = DiscoverRequest(genreId: state.genreId, page: state.page)
+        interactor?.getDiscover(param: param)
     }
     
 }

@@ -12,13 +12,13 @@ class DiscoverUIState {
     var titleName: String
     var genreId: Int
     private(set) var page: Int
-    private(set) var viewModels: [DiscoverViewModel]
+    private(set) var discovers: [DiscoverViewModel]
     private(set) var isLoadingMore = false
     
     init() {
         self.titleName = ""
         self.genreId = -1
-        self.viewModels = []
+        self.discovers = []
         self.page = 0
     }
     
@@ -29,11 +29,11 @@ class DiscoverUIState {
     }
     
     func update(discover viewModels: [DiscoverViewModel]){
-        self.viewModels = viewModels
+        self.discovers = viewModels
     }
     
     func insert(discover viewModels: [DiscoverViewModel]) {
-        self.viewModels.append(contentsOf: viewModels)
+        self.discovers.append(contentsOf: viewModels)
     }
     
     func shouldLoading(_ loading: Bool){

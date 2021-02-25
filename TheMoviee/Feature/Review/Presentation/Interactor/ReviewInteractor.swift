@@ -29,13 +29,11 @@ class ReviewInteractor: ReviewInteractorLogic {
         self.getReviewUsecase = getReviewUsecase
     }
     
-    //example method 
     func getReview(param: ReviewRequest) {
         
         getReviewUsecase.execute(param: param) { (result) in
             switch result {
             case .failure(let error):
-                //present error to view
                 self.presenter?.presentAlert(with: error.errorState.description)
                 break
             case .success(let items):

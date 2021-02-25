@@ -29,9 +29,10 @@ class DiscoverRepositoryImpl: DiscoverRepositoryLogic {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let models):
+                
                 let totalPages = models.totalPages ?? -1
                 self.userDefault.setValue(totalPages, forKey: Constant.TOTAL_DISCOVER_PAGES)
-                
+            
                 let entities = models.results?
                     .map {
                         DiscoverEntity(id: $0.id ?? -1,

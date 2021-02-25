@@ -34,6 +34,9 @@ class DiscoverPresenter: DiscoverPresenterLogic {
         viewController?.displayAlert(with: message)
     }
     
+    func presentEmpty(with iconName: String, message: String, detail: String) {
+        viewController?.displayEmptyView(with: iconName, message: message, detail: detail)
+    }
 }
 
 class DiscoverViewModel{

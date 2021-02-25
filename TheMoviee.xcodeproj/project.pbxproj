@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E0178F1625E7C9C600535878 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0178F1525E7C9C600535878 /* Constant.swift */; };
+		E0178F1925E7E22300535878 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0178F1825E7E22300535878 /* EmptyView.swift */; };
+		E0178F2425E7F21500535878 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E0178F2325E7F21500535878 /* Lottie */; };
+		E0178F2925E7F25E00535878 /* empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = E0178F2825E7F25E00535878 /* empty-box.json */; };
+		E0178F2E25E7F30D00535878 /* LBTATools in Frameworks */ = {isa = PBXBuildFile; productRef = E0178F2D25E7F30D00535878 /* LBTATools */; };
 		E070930C25E5285F00D2A3BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070930B25E5285F00D2A3BA /* AppDelegate.swift */; };
 		E070930E25E5285F00D2A3BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070930D25E5285F00D2A3BA /* SceneDelegate.swift */; };
 		E070931025E5285F00D2A3BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070930F25E5285F00D2A3BA /* ViewController.swift */; };
@@ -117,6 +121,8 @@
 
 /* Begin PBXFileReference section */
 		E0178F1525E7C9C600535878 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		E0178F1825E7E22300535878 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		E0178F2825E7F25E00535878 /* empty-box.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "empty-box.json"; sourceTree = "<group>"; };
 		E070930825E5285F00D2A3BA /* TheMoviee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMoviee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E070930B25E5285F00D2A3BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E070930D25E5285F00D2A3BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 				E070933725E536AB00D2A3BA /* Alamofire in Frameworks */,
 				E0B8D40725E6C70600A6BF85 /* SkeletonView in Frameworks */,
 				E07093F525E5708B00D2A3BA /* Nuke in Frameworks */,
+				E0178F2425E7F21500535878 /* Lottie in Frameworks */,
+				E0178F2E25E7F30D00535878 /* LBTATools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +251,15 @@
 				E0178F1525E7C9C600535878 /* Constant.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		E0178F2725E7F23600535878 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E070931725E5286200D2A3BA /* Assets.xcassets */,
+				E0178F2825E7F25E00535878 /* empty-box.json */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		E07092FF25E5285F00D2A3BA = {
@@ -274,11 +291,11 @@
 		E070932325E5288100D2A3BA /* SupportingFile */ = {
 			isa = PBXGroup;
 			children = (
+				E0178F2725E7F23600535878 /* Assets */,
 				E070930B25E5285F00D2A3BA /* AppDelegate.swift */,
 				E070930D25E5285F00D2A3BA /* SceneDelegate.swift */,
 				E070930F25E5285F00D2A3BA /* ViewController.swift */,
 				E070931125E5285F00D2A3BA /* Main.storyboard */,
-				E070931725E5286200D2A3BA /* Assets.xcassets */,
 				E070931925E5286200D2A3BA /* LaunchScreen.storyboard */,
 				E070931C25E5286200D2A3BA /* Info.plist */,
 				E070931425E5285F00D2A3BA /* TheMoviee.xcdatamodeld */,
@@ -839,6 +856,7 @@
 			children = (
 				E0B8D3A325E6922100A6BF85 /* BasicHeader.swift */,
 				E0B8D3A425E6922100A6BF85 /* BasicHeader.xib */,
+				E0178F1825E7E22300535878 /* EmptyView.swift */,
 			);
 			path = ReusableView;
 			sourceTree = "<group>";
@@ -1032,6 +1050,8 @@
 				E070933625E536AB00D2A3BA /* Alamofire */,
 				E07093F425E5708B00D2A3BA /* Nuke */,
 				E0B8D40625E6C70600A6BF85 /* SkeletonView */,
+				E0178F2325E7F21500535878 /* Lottie */,
+				E0178F2D25E7F30D00535878 /* LBTATools */,
 			);
 			productName = TheMoviee;
 			productReference = E070930825E5285F00D2A3BA /* TheMoviee.app */;
@@ -1064,6 +1084,8 @@
 				E070933525E536AA00D2A3BA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E07093F325E5708B00D2A3BA /* XCRemoteSwiftPackageReference "Nuke" */,
 				E0B8D40525E6C70600A6BF85 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				E0178F2225E7F21500535878 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				E0178F2C25E7F30D00535878 /* XCRemoteSwiftPackageReference "LBTATools" */,
 			);
 			productRefGroup = E070930925E5285F00D2A3BA /* Products */;
 			projectDirPath = "";
@@ -1087,6 +1109,7 @@
 				E0B8D3A625E6922100A6BF85 /* BasicHeader.xib in Resources */,
 				E0B8D39525E6560900A6BF85 /* DetailMovieCell.xib in Resources */,
 				E0B8D39B25E6561800A6BF85 /* TrailerCell.xib in Resources */,
+				E0178F2925E7F25E00535878 /* empty-box.json in Resources */,
 				E070931825E5286200D2A3BA /* Assets.xcassets in Resources */,
 				E070931325E5285F00D2A3BA /* Main.storyboard in Resources */,
 			);
@@ -1145,6 +1168,7 @@
 				E0A4CB1425E594140070D317 /* TrailerEntity.swift in Sources */,
 				E0B8D38F25E6532700A6BF85 /* DetailMovieUI+Skeleton.swift in Sources */,
 				E0B8D3F225E6BD0900A6BF85 /* ReviewUsecase.swift in Sources */,
+				E0178F1925E7E22300535878 /* EmptyView.swift in Sources */,
 				E0B8D37F25E61E1B00A6BF85 /* AppColor.swift in Sources */,
 				E0A4CB0E25E589A60070D317 /* ReviewEntity.swift in Sources */,
 				E070935225E5379000D2A3BA /* DataError.swift in Sources */,
@@ -1395,6 +1419,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E0178F2225E7F21500535878 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+		E0178F2C25E7F30D00535878 /* XCRemoteSwiftPackageReference "LBTATools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bhlvoong/LBTATools.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.17;
+			};
+		};
 		E070933525E536AA00D2A3BA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1422,6 +1462,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E0178F2325E7F21500535878 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0178F2225E7F21500535878 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		E0178F2D25E7F30D00535878 /* LBTATools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0178F2C25E7F30D00535878 /* XCRemoteSwiftPackageReference "LBTATools" */;
+			productName = LBTATools;
+		};
 		E070933625E536AB00D2A3BA /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E070933525E536AA00D2A3BA /* XCRemoteSwiftPackageReference "Alamofire" */;

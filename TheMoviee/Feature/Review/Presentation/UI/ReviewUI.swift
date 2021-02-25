@@ -29,6 +29,7 @@ class ReviewUI: BaseViewController{
     
     //view
     @IBOutlet weak var reviewTableView: UITableView!
+    let refreshControl = UIRefreshControl()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -66,13 +67,16 @@ class ReviewUI: BaseViewController{
     override func setupView() {
         super.setupView()
         
+        refreshControl.addTarget(self, action: #selector(didRefresh), for: .valueChanged)
+        
         reviewTableView.isSkeletonable = true
         reviewTableView.rowHeight = UITableView.automaticDimension
         reviewTableView.register(ReviewTableViewCell.nib, forCellReuseIdentifier: ReviewTableViewCell.identifier)
         reviewTableView.allowsSelection = false
+        reviewTableView.refreshControl = refreshControl
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    /*func scrollViewDidScroll(_ scrollView: UIScrollView) {
        
         if !state.isLoadingMore && !state.isLastPage{
             let scrollViewContentHeight = reviewTableView.contentSize.height
@@ -86,6 +90,15 @@ class ReviewUI: BaseViewController{
             }
         }
     
+    }*/
+    
+    @objc func didRefresh(){
+        
+        reviewTableView.showAnimatedSkeleton()
+        
+        state.update(page: 1)
+        let param = ReviewRequest(id: state.id, page: state.page)
+        interactor?.getReview(param: param)
     }
     
 }

@@ -10,6 +10,23 @@ import UIKit
 
 extension ReviewUI: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let size = state.reviews.count
+        let threshold = 2
+        
+        if size == 0 || size < threshold { return }
+        
+        if indexPath.item == size - threshold {
+            if !state.isLoadingMore && !state.isLastPage {
+                state.shouldLoading(true)
+                state.update(page: state.page + 1)
+                let param = ReviewRequest(id: state.id, page: state.page)
+                interactor?.getReview(param: param)
+            }
+        }
+        
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
