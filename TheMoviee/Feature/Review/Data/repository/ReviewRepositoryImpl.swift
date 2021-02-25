@@ -27,14 +27,18 @@ class ReviewRepositoryImpl: ReviewRepositoryLogic {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let models):
-                let entities = models.map {
+                
+                let totalPages = models.totalPages ?? -1
+                UserDefaults.standard.setValue(totalPages, forKey: Constant.TOTAL_REVIEW_PAGES)
+                
+                let entities = models.results?.map {
                     ReviewEntity(author: $0.author ?? "",
                                  username: $0.authorDetails?.username ?? "",
                                  avatar: $0.authorDetails?.avatarPath ?? "",
                                  content: $0.content ?? "",
                                  rating: $0.authorDetails?.rating ?? 0)
                 }
-                completion(.success(entities))
+                completion(.success(entities ?? []))
             }
         }
     }

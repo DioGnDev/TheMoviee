@@ -13,6 +13,8 @@ import Foundation
 
 class DiscoverRepositoryImpl: DiscoverRepositoryLogic {
     
+    let userDefault = UserDefaults.standard
+    
     private let datasource: DiscoverRemoteDataSource
     
     init(datasource: DiscoverRemoteDataSource) {
@@ -20,14 +22,17 @@ class DiscoverRepositoryImpl: DiscoverRepositoryLogic {
     }
     
     func getDiscover(parameter: [String : Any],
-                                     completion: @escaping (Result<[DiscoverEntity], DataError>) -> Void) {
+                     completion: @escaping (Result<[DiscoverEntity], DataError>) -> Void) {
         
         datasource.fetchDiscover(param: parameter) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let models):
-                let entities = models
+                let totalPages = models.totalPages ?? -1
+                self.userDefault.setValue(totalPages, forKey: Constant.TOTAL_DISCOVER_PAGES)
+                
+                let entities = models.results?
                     .map {
                         DiscoverEntity(id: $0.id ?? -1,
                                        title: $0.originalTitle ?? "",
@@ -37,8 +42,10 @@ class DiscoverRepositoryImpl: DiscoverRepositoryLogic {
                                        adult: $0.adult ?? false,
                                        releaseDate: $0.releaseDate ?? "1928")
                     }
-                completion(.success(entities))
+                
+                completion(.success(entities ?? []))
             }
         }
     }
+    
 }

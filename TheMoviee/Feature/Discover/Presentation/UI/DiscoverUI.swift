@@ -70,8 +70,8 @@ class DiscoverUI: BaseViewController{
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if !state.isLoadingMore {
+       
+        if !state.isLoadingMore && !state.isLastPage{
             let scrollViewContentHeight = discoverTableView.contentSize.height
             let scrollViewOffsetTreshold = scrollViewContentHeight - discoverTableView.bounds.size.height
             

@@ -60,7 +60,7 @@ class DetailMovieUI: BaseViewController{
         let param = DetailMovieRequest(id: state.id)
         interactor?.getDetailMovie(param: param)
         
-        let reviewParam = ReviewRequest(id: state.id)
+        let reviewParam = ReviewRequest(id: state.id, page: 1)
         interactor?.getReview(param: reviewParam)
         
         let trailerParam = TrailerRequest(id: state.id)
@@ -90,5 +90,12 @@ extension DetailMovieUI: BasicHeaderDelegate {
     
     func didTapShowAll() {
         router?.navigateToReview(id: state.id)
+    }
+}
+
+extension DetailMovieUI: TrailerCellDelegate {
+    
+    func didPlay() {
+        router?.navigateToPlayer(withURL: state.videoUrl)
     }
 }

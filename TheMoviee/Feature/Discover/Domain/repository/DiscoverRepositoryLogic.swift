@@ -13,6 +13,6 @@ import Foundation
 
 protocol DiscoverRepositoryLogic {
     func getDiscover(parameter: [String: Any],
-                             completion: @escaping(Result<[DiscoverEntity], DataError>) -> Void)
+                     completion: @escaping(Result<[DiscoverEntity], DataError>) -> Void)
 }
 

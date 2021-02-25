@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TrailerCellDelegate: class {
+    func didPlay()
+}
+
 class TrailerCell: UICollectionViewCell {
 
     static let identifier = "trailer_cell"
@@ -14,6 +18,8 @@ class TrailerCell: UICollectionViewCell {
     
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var trailerLabel: UILabel!
+    
+    weak var delegate: TrailerCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +29,6 @@ class TrailerCell: UICollectionViewCell {
     }
 
     @IBAction func didPlay(_ sender: UIButton) {
-        debug(with: "action", message: "play trailer")
+        delegate?.didPlay()
     }
 }

@@ -13,6 +13,7 @@ import Foundation
 
 protocol ReviewPresenterLogic: BasePresenterLogic {
     func presentReview(entities: [ReviewEntity])
+    func presentMoreReview(entities: [ReviewEntity])
 }
 
 class ReviewPresenter: ReviewPresenterLogic {
@@ -30,6 +31,11 @@ class ReviewPresenter: ReviewPresenterLogic {
     
     func presentEmpty(with iconName: String, message: String, detail: String) {
         viewController?.displayEmptyView(with: iconName, message: message, detail: detail)
+    }
+    
+    func presentMoreReview(entities: [ReviewEntity]) {
+        let viewModels = entities.map(ReviewViewModel.init)
+        viewController?.displayMoreReview(viewModels: viewModels)
     }
 }
 

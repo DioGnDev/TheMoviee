@@ -13,11 +13,13 @@ class DetailMovieUIState {
     private(set) var detailViewModel: DetailMovieViewModel
     private(set) var reviewViewModels: [ReviewViewModel]
     private(set) var trailerViewModels: [TrailerViewModel]
+    private(set) var videoUrl: String
     
     init() {
         self.id = -1
         trailerViewModels = []
         reviewViewModels = []
+        videoUrl = ""
         self.detailViewModel = .init(
             entity: .init(id: 1,
                           title: "Test",
@@ -40,4 +42,9 @@ class DetailMovieUIState {
     func update(trailers: [TrailerViewModel]) {
         self.trailerViewModels = trailers
     }
+    
+    func set(video url: String) {
+        self.videoUrl = url
+    }
+    
 }

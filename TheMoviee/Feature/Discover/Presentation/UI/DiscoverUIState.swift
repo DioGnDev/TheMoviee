@@ -22,6 +22,12 @@ class DiscoverUIState {
         self.page = 0
     }
     
+    var totalPages = UserDefaults.standard.integer(forKey: Constant.TOTAL_DISCOVER_PAGES)
+    
+    var isLastPage: Bool {
+        return self.page == totalPages
+    }
+    
     func update(discover viewModels: [DiscoverViewModel]){
         self.viewModels = viewModels
     }

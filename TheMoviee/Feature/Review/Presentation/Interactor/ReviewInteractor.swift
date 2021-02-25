@@ -13,6 +13,7 @@ import Foundation
 
 protocol ReviewInteractorLogic {
     func getReview(param: ReviewRequest)
+    func getMoreReview(param: ReviewRequest)
 }
 
 class ReviewInteractor: ReviewInteractorLogic {
@@ -42,6 +43,24 @@ class ReviewInteractor: ReviewInteractorLogic {
                     self.presenter?.presentEmpty(with: "", message: "No Review", detail: "Review not found")
                 }else {
                     self.presenter?.presentReview(entities: items)
+                }
+                break
+            }
+        }
+    }
+    
+    func getMoreReview(param: ReviewRequest) {
+        
+        getReviewUsecase.execute(param: param) { (result) in
+            switch result {
+            case .failure(let error):
+                self.presenter?.presentAlert(with: error.errorState.description)
+                break
+            case .success(let items):
+                if items.count == 0 || items.isEmpty {
+                    self.presenter?.presentEmpty(with: "", message: "No Review", detail: "Review not found")
+                }else {
+                    self.presenter?.presentMoreReview(entities: items)
                 }
                 break
             }

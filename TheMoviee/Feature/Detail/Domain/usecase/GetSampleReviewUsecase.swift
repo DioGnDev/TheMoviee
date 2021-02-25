@@ -27,14 +27,17 @@ class GetSampleReviewUsecase: BaseUsecase {
 class ReviewRequest: BaseRequest {
     
     let id: Int
+    let page: Int
     
-    init(id: Int) {
+    init(id: Int, page: Int) {
         self.id = id
+        self.page = page
     }
     
     override func toParam() -> [String : Any] {
         return ["api_key": apiKey,
-                "id": id]
+                "id": id,
+                "page": page]
     }
     
 }

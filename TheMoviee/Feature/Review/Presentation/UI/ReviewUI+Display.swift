@@ -14,8 +14,14 @@ extension ReviewUI: ReviewDisplayLogic {
         self.reviewTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
     }
     
+    func displayMoreReview(viewModels: [ReviewViewModel]) {
+        state.shouldLoading(false)
+        state.insert(reviews: viewModels)
+        self.reviewTableView.reloadData()
+    }
+    
     func displayAlert(with message: String) {
-        
+        self.alertView(title: "Oops", message: message)
     }
     
     func displayEmptyView(with iconName: String, message: String, detail: String) {

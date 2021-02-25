@@ -26,6 +26,7 @@ extension DetailMovieUI: UICollectionViewDataSource, UICollectionViewDelegate {
             return cell
         }else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrailerCell.identifier, for: indexPath) as! TrailerCell
+            cell.delegate = self
             setupTrailer(for: cell, at: indexPath)
             return cell
         }else if indexPath.section == 2 {
@@ -72,6 +73,7 @@ extension DetailMovieUI {
     
     func setupTrailer(for cell: TrailerCell, at index: IndexPath) {
         let item = state.trailerViewModels[index.row]
+        state.set(video: item.videoUrl)
         cell.trailerLabel.text = item.title
     }
     

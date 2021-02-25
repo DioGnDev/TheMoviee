@@ -14,15 +14,14 @@ import Foundation
 protocol DiscoverRemoteDataSource {
     
     func fetchDiscover(param: [String: Any],
-                       completion: @escaping(Result<[DiscoverModel], DataError>) -> Void)
+                       completion: @escaping(Result<DiscoverResponse, DataError>) -> Void)
 
 }
 
 class DiscoverRemoteDataSourceImpl: DiscoverRemoteDataSource{
 
-    
     func fetchDiscover(param: [String : Any],
-                       completion: @escaping (Result<[DiscoverModel], DataError>) -> Void) {
+                       completion: @escaping (Result<DiscoverResponse, DataError>) -> Void) {
         
         let endpoint = "/discover/movie"
         NetworkManager.shared.request(with: endpoint, withParameter: param) { (result) in
@@ -32,7 +31,7 @@ class DiscoverRemoteDataSourceImpl: DiscoverRemoteDataSource{
             case let .success(data):
                 do {
                     let json = try JSONDecoder().decode(DiscoverResponse.self, from: data)
-                    completion(.success(json.results ?? []))
+                    completion(.success(json))
                 } catch {
                     completion(.failure(.init(errorState: .parseError)))
                 }

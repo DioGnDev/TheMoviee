@@ -15,6 +15,7 @@ import SkeletonView
 
 protocol ReviewDisplayLogic: BaseDisplayLogic{
     func displayReview(viewModel: [ReviewViewModel])
+    func displayMoreReview(viewModels: [ReviewViewModel])
 }
 
 class ReviewUI: BaseViewController{
@@ -56,7 +57,9 @@ class ReviewUI: BaseViewController{
         
         reviewTableView.showAnimatedSkeleton()
         
-        let param = ReviewRequest(id: state.id)
+        //initial request
+        state.update(page: 1)
+        let param = ReviewRequest(id: state.id, page: state.page)
         interactor?.getReview(param: param)
     }
     
@@ -67,6 +70,22 @@ class ReviewUI: BaseViewController{
         reviewTableView.rowHeight = UITableView.automaticDimension
         reviewTableView.register(ReviewTableViewCell.nib, forCellReuseIdentifier: ReviewTableViewCell.identifier)
         reviewTableView.allowsSelection = false
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       
+        if !state.isLoadingMore && !state.isLastPage{
+            let scrollViewContentHeight = reviewTableView.contentSize.height
+            let scrollViewOffsetTreshold = scrollViewContentHeight - reviewTableView.bounds.size.height
+            
+            if scrollView.contentOffset.y > scrollViewOffsetTreshold && reviewTableView.isDragging {
+                state.shouldLoading(true)
+                state.update(page: state.page + 1)
+                let request = ReviewRequest(id: state.id, page: 1)
+                interactor?.getMoreReview(param: request)
+            }
+        }
+    
     }
     
 }

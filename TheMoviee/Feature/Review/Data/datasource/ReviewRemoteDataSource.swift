@@ -14,13 +14,13 @@ import Foundation
 protocol ReviewRemoteDataSource {
     
     func fetchReview(param: [String: Any],
-                       completion: @escaping(Result<[ReviewModel], DataError>) -> Void)
+                       completion: @escaping(Result<ReviewResponse, DataError>) -> Void)
 
 }
 
 class ReviewRemoteDataSourceImpl: ReviewRemoteDataSource{
     
-    func fetchReview(param: [String : Any], completion: @escaping (Result<[ReviewModel], DataError>) -> Void) {
+    func fetchReview(param: [String : Any], completion: @escaping (Result<ReviewResponse, DataError>) -> Void) {
        
         guard let id = param["id"] as? Int else {
             completion(.failure(.init(errorState: .undefinedError)))
@@ -39,7 +39,7 @@ class ReviewRemoteDataSourceImpl: ReviewRemoteDataSource{
             case let .success(data):
                 do {
                    let json = try JSONDecoder().decode(ReviewResponse.self, from: data)
-                    completion(.success(json.results ?? []))
+                    completion(.success(json))
                 } catch  {
                     completion(.failure(.init(errorState: .parseError)))
                 }
