@@ -13,6 +13,7 @@ class TrailerCell: UICollectionViewCell {
     static let nib = UINib(nibName: "\(TrailerCell.self)", bundle: nil)
     
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var trailerLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

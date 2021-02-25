@@ -23,11 +23,28 @@
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gMA-Hh-AKZ">
                             <rect key="frame" x="0.0" y="0.0" width="197" height="271"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7JU-qq-sWu">
+                                    <rect key="frame" x="8" y="160.5" width="181" height="102.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="7JU-qq-sWu" firstAttribute="leading" secondItem="gMA-Hh-AKZ" secondAttribute="leading" constant="8" id="2yi-59-uYo"/>
+                                <constraint firstAttribute="bottom" secondItem="7JU-qq-sWu" secondAttribute="bottom" constant="8" id="6no-Fa-hql"/>
+                                <constraint firstAttribute="trailing" secondItem="7JU-qq-sWu" secondAttribute="trailing" constant="8" id="8ca-OG-YFz"/>
+                            </constraints>
                         </view>
                         <blurEffect style="dark"/>
                     </visualEffectView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ah-WY-TMx">
-                        <rect key="frame" x="84" y="124.5" width="29.5" height="22"/>
+                        <rect key="frame" x="83.5" y="120.5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="bME-78-ZMo"/>
+                            <constraint firstAttribute="height" constant="30" id="q2y-uR-OCY"/>
+                        </constraints>
                         <color key="tintColor" systemColor="systemRedColor"/>
                         <state key="normal">
                             <imageReference key="image" image="play.rectangle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
@@ -41,6 +58,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="8Ah-WY-TMx" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Fip-9E-qYG"/>
+                <constraint firstItem="7JU-qq-sWu" firstAttribute="top" secondItem="8Ah-WY-TMx" secondAttribute="bottom" constant="10" id="XQd-4Y-gIv"/>
                 <constraint firstItem="8Ah-WY-TMx" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="a1I-b0-3Kz"/>
                 <constraint firstItem="JqQ-F5-Tgc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aZq-7D-cqQ"/>
                 <constraint firstAttribute="trailing" secondItem="JqQ-F5-Tgc" secondAttribute="trailing" id="fAg-8V-ri2"/>
@@ -49,6 +67,7 @@
             </constraints>
             <size key="customSize" width="197" height="271"/>
             <connections>
+                <outlet property="trailerLabel" destination="7JU-qq-sWu" id="EAc-DZ-LyH"/>
                 <outlet property="visualEffectView" destination="JqQ-F5-Tgc" id="T2f-ZD-rX7"/>
             </connections>
             <point key="canvasLocation" x="236.95652173913047" y="151.00446428571428"/>

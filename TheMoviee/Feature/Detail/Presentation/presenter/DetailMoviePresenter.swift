@@ -90,4 +90,8 @@ class TrailerViewModel {
         self.entity = entity
     }
     
+    var title: String {
+        return entity.name
+    }
+    
 }

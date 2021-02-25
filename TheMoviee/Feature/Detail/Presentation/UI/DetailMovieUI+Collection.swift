@@ -71,7 +71,8 @@ extension DetailMovieUI {
     }
     
     func setupTrailer(for cell: TrailerCell, at index: IndexPath) {
-        
+        let item = state.trailerViewModels[index.row]
+        cell.trailerLabel.text = item.title
     }
     
     func setupReview(for cell: ReviewCell, at index: IndexPath) {
