@@ -11,9 +11,12 @@
 
 import Foundation
 import UIKit
+import AVFoundation
+import AVKit
 
 protocol DetailMovieRouterLogic {
     func navigateToReview(id: Int)
+    func navigateToPlayer(withURL url: String)
 }
 
 class DetailMovieRouter: DetailMovieRouterLogic {
@@ -26,6 +29,19 @@ class DetailMovieRouter: DetailMovieRouterLogic {
                                       identifier: "review_vc") as! ReviewUI
         destination.state.id = id
         viewController?.navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    func navigateToPlayer(withURL url: String) {
+        
+        guard let videoURL = URL(string: url) else { return }
+        let player = AVPlayer(url: videoURL)
+        let controller = AVPlayerViewController()
+        controller.player = player
+        
+        viewController?.present(controller, animated: true, completion: {
+            controller.player?.play()
+        })
+        
     }
     
 }

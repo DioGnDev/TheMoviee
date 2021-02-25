@@ -94,4 +94,7 @@ class TrailerViewModel {
         return entity.name
     }
     
+    var videoUrl: String {
+        return "https://youtu.be/\(entity.key)?t=30"
+    }
 }
