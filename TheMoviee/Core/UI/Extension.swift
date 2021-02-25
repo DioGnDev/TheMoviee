@@ -56,6 +56,17 @@ extension UIViewController {
         Nuke.loadImage(with: url, options: options, into: view)
     }
     
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =
+            UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }
 
 extension Date {
@@ -92,5 +103,21 @@ extension UIColor {
         get {
             return UIColor(named: "Terniary") ?? .clear
         }
+    }
+}
+
+extension UITableView {
+    
+    func setEmptyView(with iconName: String, message: String){
+        let emptyView = EmptyView(iconName: iconName, message: message)
+        self.backgroundView = emptyView
+        self.separatorStyle = .none
+//        self.isScrollEnabled = false
+    }
+    
+    func restore(){
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
+//        self.isScrollEnabled = true
     }
 }
