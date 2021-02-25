@@ -14,7 +14,6 @@
 		E0178F2E25E7F30D00535878 /* LBTATools in Frameworks */ = {isa = PBXBuildFile; productRef = E0178F2D25E7F30D00535878 /* LBTATools */; };
 		E070930C25E5285F00D2A3BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070930B25E5285F00D2A3BA /* AppDelegate.swift */; };
 		E070930E25E5285F00D2A3BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070930D25E5285F00D2A3BA /* SceneDelegate.swift */; };
-		E070931025E5285F00D2A3BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070930F25E5285F00D2A3BA /* ViewController.swift */; };
 		E070931325E5285F00D2A3BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E070931125E5285F00D2A3BA /* Main.storyboard */; };
 		E070931625E5285F00D2A3BA /* TheMoviee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E070931425E5285F00D2A3BA /* TheMoviee.xcdatamodeld */; };
 		E070931825E5286200D2A3BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E070931725E5286200D2A3BA /* Assets.xcassets */; };
@@ -126,7 +125,6 @@
 		E070930825E5285F00D2A3BA /* TheMoviee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMoviee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E070930B25E5285F00D2A3BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E070930D25E5285F00D2A3BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E070930F25E5285F00D2A3BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E070931225E5285F00D2A3BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E070931525E5285F00D2A3BA /* TheMoviee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMoviee.xcdatamodel; sourceTree = "<group>"; };
 		E070931725E5286200D2A3BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 				E0178F2725E7F23600535878 /* Assets */,
 				E070930B25E5285F00D2A3BA /* AppDelegate.swift */,
 				E070930D25E5285F00D2A3BA /* SceneDelegate.swift */,
-				E070930F25E5285F00D2A3BA /* ViewController.swift */,
 				E070931125E5285F00D2A3BA /* Main.storyboard */,
 				E070931925E5286200D2A3BA /* LaunchScreen.storyboard */,
 				E070931C25E5286200D2A3BA /* Info.plist */,
@@ -1159,7 +1156,6 @@
 				E0B8D3DC25E6B85700A6BF85 /* ReviewPresenter.swift in Sources */,
 				E070942325E5779D00D2A3BA /* DetailMovieEntity.swift in Sources */,
 				E070942125E5779D00D2A3BA /* DetailMovieModel.swift in Sources */,
-				E070931025E5285F00D2A3BA /* ViewController.swift in Sources */,
 				E070939A25E5452800D2A3BA /* GenreInteractor.swift in Sources */,
 				E070936325E542D500D2A3BA /* BaseViewController.swift in Sources */,
 				E070936025E53CC200D2A3BA /* Extension.swift in Sources */,
