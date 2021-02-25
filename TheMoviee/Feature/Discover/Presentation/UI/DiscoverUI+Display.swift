@@ -14,7 +14,7 @@ extension DiscoverUI: DiscoverDisplayLogic {
         self.discoverTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
     }
     
-    func displayDiscoverMore(viewModels: [DiscoverViewModel]) {
+    func displayMoreDiscover(viewModels: [DiscoverViewModel]) {
         state.shouldLoading(false)
         state.insert(discover: viewModels)
         self.discoverTableView.reloadData()

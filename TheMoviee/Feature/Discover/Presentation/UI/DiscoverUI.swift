@@ -14,7 +14,7 @@ import UIKit
 
 protocol DiscoverDisplayLogic: BaseDisplayLogic{
     func displayDiscover(viewModels: [DiscoverViewModel])
-    func displayDiscoverMore(viewModels: [DiscoverViewModel])
+    func displayMoreDiscover(viewModels: [DiscoverViewModel])
 }
 
 class DiscoverUI: BaseViewController{
@@ -79,7 +79,7 @@ class DiscoverUI: BaseViewController{
                 state.shouldLoading(true)
                 state.update(page: state.page + 1)
                 let request = DiscoverRequest(genreId: state.genreId, page: state.page)
-                interactor?.getDiscoverMore(param: request)
+                interactor?.getMoreDiscover(param: request)
             }
         }
     

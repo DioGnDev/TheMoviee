@@ -13,7 +13,7 @@ import Foundation
 
 protocol DiscoverPresenterLogic: BasePresenterLogic {
     func presentDiscover(entities: [DiscoverEntity])
-    func presentDiscoverMore(entities: [DiscoverEntity])
+    func presentMoreDiscover(entities: [DiscoverEntity])
 }
 
 class DiscoverPresenter: DiscoverPresenterLogic {
@@ -25,9 +25,9 @@ class DiscoverPresenter: DiscoverPresenterLogic {
         viewController?.displayDiscover(viewModels: viewModels)
     }
     
-    func presentDiscoverMore(entities: [DiscoverEntity]) {
+    func presentMoreDiscover(entities: [DiscoverEntity]) {
         let viewModels = entities.map(DiscoverViewModel.init)
-        viewController?.displayDiscoverMore(viewModels: viewModels)
+        viewController?.displayMoreDiscover(viewModels: viewModels)
     }
     
     func presentAlert(with message: String) {
